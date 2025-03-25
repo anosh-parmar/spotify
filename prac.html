@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expandable Search Bar</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      img {
+        width: 100px;
+        cursor: pointer; /* Indicates the images are clickable */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hs">
+      <a href="#" class="home-link" aria-label="it is to access home page">
+        <div class="home">
+          <img src="/svgs/home.svg" alt="home" class="oneimg" />
+        </div>
+      </a>
+
+      <a
+        href="#"
+        class="search-link"
+        aria-label="it is to access search search_bar"
+      >
+        <div class="search">
+          <div class="searchbtn">
+            <img src="/svgs/search.svg" alt="Search" />
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="library-link" aria-label="it is to create a library">
+        <div class="library">
+          <img src="/svgs/library.svg" alt="library" class="twoimg" />
+        </div>
+      </a>
+    </div>
+
+    <script>
+      const one = document.querySelector(".oneimg");
+      const two = document.querySelector(".twoimg");
+
+      function changeImages() {
+        one.src = "/svgs/home1.svg";
+        two.src = "/svgs/library1.svg";
+      }
+
+      function revertImages() {
+        one.src = "/svgs/home.svg";
+        two.src = "/svgs/library.svg";
+      }
+
+      document.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", (event) => event.preventDefault());
+      });
+
+      two.addEventListener("click", changeImages);
+
+      one.addEventListener("click", revertImages);
+    </script>
+  </body>
+</html>
